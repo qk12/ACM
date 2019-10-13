@@ -1,8 +1,8 @@
-// HDU 1358
+// HDU 3746
 #include <bits/stdc++.h>
 using namespace std;
 
-const int maxn = 1e6 + 5;
+const int maxn = 1e5 + 5;
 int kmp[maxn];
 char x[maxn];
 void initkmp(int m)
@@ -18,16 +18,18 @@ void initkmp(int m)
 
 int main()
 {
-    int m, kase = 0;
-    while (scanf("%d", &m), m)
+    int T;
+    scanf("%d", &T);
+    while (T--)
     {
         scanf("%s", x);
-        initkmp(m);
-        printf("Test case #%d\n", ++kase);
-        for (int i = 2; i <= m; i++)
-            if (kmp[i] != 0 && i % (i - kmp[i]) == 0)
-                printf("%d %d\n", i, i / (i - kmp[i]));
-        printf("\n");
+        int len = strlen(x);
+        initkmp(len);
+        int t = len - kmp[len];
+        if (len % t == 0 && kmp[len] != 0)
+            printf("0\n");
+        else
+            printf("%d\n", t - len % t);
     }
     return 0;
 }

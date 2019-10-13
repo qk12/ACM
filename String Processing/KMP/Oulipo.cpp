@@ -1,9 +1,8 @@
-// POJ 3461
-#include <cstdio>
-#include <cstring>
+// HDU 1686
+#include <bits/stdc++.h>
 using namespace std;
 
-const int maxn = 10005;
+const int maxn = 1e4 + 5;
 int kmp[maxn];
 char x[maxn], y[1000005];
 void initkmp(int m)
